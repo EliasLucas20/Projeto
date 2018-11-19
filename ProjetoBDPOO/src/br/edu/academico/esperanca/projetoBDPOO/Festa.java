@@ -2,17 +2,24 @@ package br.edu.academico.esperanca.projetoBDPOO;
 
 import java.util.ArrayList;
 
-public class Festa {
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
+public class Festa {
+	@Id
 	private Integer id;
 	private Integer sala;
 	private Double valor_arrecadado;
+	@ManyToMany
+	@JoinTable(name = "participa_festa", joinColumns = @JoinColumn(name = "festa_id"), inverseJoinColumns = @JoinColumn(name = "participante_id"))
 	private ArrayList<Participante> participa;
 	private ArrayList<Participante> org;
-	private ArrayList<ProdutoAdqui> adquirido;
-	
-	public Festa(Integer id, Integer sala, Double valor_arrecadado,
-			ArrayList<Participante> participa, ArrayList<Participante> org, ArrayList<ProdutoAdqui> adquirido) {
+	private ArrayList<Produto> adquirido;
+
+	public Festa(Integer id, Integer sala, Double valor_arrecadado, ArrayList<Participante> participa,
+			ArrayList<Participante> org, ArrayList<Produto> adquirido) {
 		super();
 		this.id = id;
 		this.sala = sala;
@@ -21,41 +28,52 @@ public class Festa {
 		this.org = org;
 		this.adquirido = adquirido;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getSala() {
 		return sala;
 	}
+
 	public void setSala(Integer sala) {
 		this.sala = sala;
 	}
+
 	public Double getValor_arrecadado() {
 		return valor_arrecadado;
 	}
+
 	public void setValor_arrecadado(Double valor_arrecadado) {
 		this.valor_arrecadado = valor_arrecadado;
-	}	
+	}
+
 	public ArrayList<Participante> getParticipa() {
 		return participa;
 	}
+
 	public void setParticipa(ArrayList<Participante> participa) {
 		this.participa = participa;
 	}
+
 	public ArrayList<Participante> getOrg() {
 		return org;
 	}
+
 	public void setOrg(ArrayList<Participante> org) {
 		this.org = org;
 	}
-	public ArrayList<ProdutoAdqui> getAdquirido() {
+
+	public ArrayList<Produto> getAdquirido() {
 		return adquirido;
 	}
-	public void setAdquirido(ArrayList<ProdutoAdqui> adquirido) {
+
+	public void setAdquirido(ArrayList<Produto> adquirido) {
 		this.adquirido = adquirido;
 	}
 
@@ -116,20 +134,23 @@ public class Festa {
 
 	@Override
 	public String toString() {
-		return "Festa [id=" + id + ", sala=" + sala + ", valor_arrecadado=" + valor_arrecadado + ", participa=" + participa + ", org=" + org + ", adquirido=" + adquirido + "]";
+		return "Festa [id=" + id + ", sala=" + sala + ", valor_arrecadado=" + valor_arrecadado + ", participa="
+				+ participa + ", org=" + org + ", adquirido=" + adquirido + "]";
 	}
+
 	double valor;
+
 	public double getValorFesta() {
-		
-		for (ProdutoAdqui produtoAdqui : adquirido) {
-			valor += (produtoAdqui.getPreco() * produtoAdqui.getQuantidade());
+
+		for (Produto p : adquirido) {
+			valor += (p.getPreço() * p.getQnt());
 		}
-		return valor;	
+		return valor;
 	}
-	
+
 	public double getValorParti() {
 		double valorParti = valor / getParticipa().size();
-		return valorParti;	
+		return valorParti;
 	}
-	
+
 }

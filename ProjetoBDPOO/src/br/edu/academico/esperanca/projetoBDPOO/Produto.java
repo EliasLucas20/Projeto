@@ -7,6 +7,7 @@ public class Produto {
 	private Integer id;
 	private String nome;
 	private Double preco;
+	private Integer qnt;
 	private ArrayList<Fornecedor> fornece;
 	private ArrayList<ProdutoAdqui> adquirido;
 	
@@ -104,6 +105,14 @@ public class Produto {
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", preço=" + preco + ", fornece=" + fornece + ", adquirido="
 				+ adquirido + "]";
+	}
+
+	public Integer getQnt() {
+		return qnt;
+	}
+
+	public void setQnt(Integer qnt) {
+		this.qnt = qnt;
 	}
 
 }
