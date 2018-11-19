@@ -6,7 +6,7 @@ public class Produto {
 	
 	private Integer id;
 	private String nome;
-	private Double preço;
+	private Double preco;
 	private ArrayList<Fornecedor> fornece;
 	private ArrayList<ProdutoAdqui> adquirido;
 	
@@ -15,7 +15,7 @@ public class Produto {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preço = preço;
+		this.preco = preço;
 		this.fornece = fornece;
 		this.adquirido = adquirido;
 	}
@@ -33,10 +33,10 @@ public class Produto {
 		this.nome = nome;
 	}
 	public Double getPreço() {
-		return preço;
+		return preco;
 	}
-	public void setPreço(Double preço) {
-		this.preço = preço;
+	public void setPreço(Double preco) {
+		this.preco = preco;
 	}
 	public ArrayList<Fornecedor> getFornece() {
 		return fornece;
@@ -59,7 +59,7 @@ public class Produto {
 		result = prime * result + ((fornece == null) ? 0 : fornece.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((preço == null) ? 0 : preço.hashCode());
+		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
 		return result;
 	}
 
@@ -92,17 +92,17 @@ public class Produto {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (preço == null) {
-			if (other.preço != null)
+		if (preco == null) {
+			if (other.preco != null)
 				return false;
-		} else if (!preço.equals(other.preço))
+		} else if (!preco.equals(other.preco))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", preço=" + preço + ", fornece=" + fornece + ", adquirido="
+		return "Produto [id=" + id + ", nome=" + nome + ", preço=" + preco + ", fornece=" + fornece + ", adquirido="
 				+ adquirido + "]";
 	}
 

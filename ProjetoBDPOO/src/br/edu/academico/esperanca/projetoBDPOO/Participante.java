@@ -73,5 +73,6 @@ public class Participante {
 	public String toString() {
 		return "Participante [matricula=" + matricula + ", nome=" + nome + ", valor_parti=" + valor_parti + "]";
 	}
+
 	
 }

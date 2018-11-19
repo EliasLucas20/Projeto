@@ -7,18 +7,16 @@ public class Festa {
 	private Integer id;
 	private Integer sala;
 	private Double valor_arrecadado;
-	private Double valor_festa;
 	private ArrayList<Participante> participa;
 	private ArrayList<Participante> org;
 	private ArrayList<ProdutoAdqui> adquirido;
 	
-	public Festa(Integer id, Integer sala, Double valor_arrecadado, Double valor_festa,
+	public Festa(Integer id, Integer sala, Double valor_arrecadado,
 			ArrayList<Participante> participa, ArrayList<Participante> org, ArrayList<ProdutoAdqui> adquirido) {
 		super();
 		this.id = id;
 		this.sala = sala;
 		this.valor_arrecadado = valor_arrecadado;
-		this.valor_festa = valor_festa;
 		this.participa = participa;
 		this.org = org;
 		this.adquirido = adquirido;
@@ -41,13 +39,7 @@ public class Festa {
 	}
 	public void setValor_arrecadado(Double valor_arrecadado) {
 		this.valor_arrecadado = valor_arrecadado;
-	}
-	public Double getValor_festa() {
-		return valor_festa;
-	}
-	public void setValor_festa(Double valor_festa) {
-		this.valor_festa = valor_festa;
-	}
+	}	
 	public ArrayList<Participante> getParticipa() {
 		return participa;
 	}
@@ -77,7 +69,6 @@ public class Festa {
 		result = prime * result + ((participa == null) ? 0 : participa.hashCode());
 		result = prime * result + ((sala == null) ? 0 : sala.hashCode());
 		result = prime * result + ((valor_arrecadado == null) ? 0 : valor_arrecadado.hashCode());
-		result = prime * result + ((valor_festa == null) ? 0 : valor_festa.hashCode());
 		return result;
 	}
 
@@ -120,22 +111,25 @@ public class Festa {
 				return false;
 		} else if (!valor_arrecadado.equals(other.valor_arrecadado))
 			return false;
-		if (valor_festa == null) {
-			if (other.valor_festa != null)
-				return false;
-		} else if (!valor_festa.equals(other.valor_festa))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Festa [id=" + id + ", sala=" + sala + ", valor_arrecadado=" + valor_arrecadado + ", valor_festa="
-				+ valor_festa + ", participa=" + participa + ", org=" + org + ", adquirido=" + adquirido + "]";
+		return "Festa [id=" + id + ", sala=" + sala + ", valor_arrecadado=" + valor_arrecadado + ", participa=" + participa + ", org=" + org + ", adquirido=" + adquirido + "]";
 	}
-
-	public void valorFesta() {
+	double valor;
+	public double getValorFesta() {
 		
+		for (ProdutoAdqui produtoAdqui : adquirido) {
+			valor += (produtoAdqui.getPreco() * produtoAdqui.getQuantidade());
+		}
+		return valor;	
+	}
+	
+	public double getValorParti() {
+		double valorParti = valor / getParticipa().size();
+		return valorParti;	
 	}
 	
 }

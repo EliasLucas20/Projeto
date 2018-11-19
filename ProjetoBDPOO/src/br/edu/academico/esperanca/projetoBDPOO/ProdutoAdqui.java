@@ -4,14 +4,14 @@ public class ProdutoAdqui {
 
 	private Integer id;
 	private String nome;
-	private Double preço;
+	private Double preco;
 	private Integer quantidade;
 	
-	public ProdutoAdqui(Integer id, String nome, Double preço, Integer quantidade) {
+	public ProdutoAdqui(Integer id, String nome, Double preco, Integer quantidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preço = preço;
+		this.preco = preco;
 		this.quantidade = quantidade;
 		
 	}
@@ -28,11 +28,11 @@ public class ProdutoAdqui {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Double getPreço() {
-		return preço;
+	public Double getPreco() {
+		return preco;
 	}
-	public void setPreço(Double preço) {
-		this.preço = preço;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 	public Integer getQuantidade() {
 		return quantidade;
@@ -47,7 +47,7 @@ public class ProdutoAdqui {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((preço == null) ? 0 : preço.hashCode());
+		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
 		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
 		return result;
 	}
@@ -71,10 +71,10 @@ public class ProdutoAdqui {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (preço == null) {
-			if (other.preço != null)
+		if (preco == null) {
+			if (other.preco != null)
 				return false;
-		} else if (!preço.equals(other.preço))
+		} else if (!preco.equals(other.preco))
 			return false;
 		if (quantidade == null) {
 			if (other.quantidade != null)
@@ -86,7 +86,7 @@ public class ProdutoAdqui {
 
 	@Override
 	public String toString() {
-		return "ProdutoAdqui [id=" + id + ", nome=" + nome + ", preço=" + preço + ", quantidade=" + quantidade + "]";
+		return "ProdutoAdqui [id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade + "]";
 	}
 	
 
