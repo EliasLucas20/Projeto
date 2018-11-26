@@ -1,19 +1,28 @@
 package br.edu.academico.esperanca.projetoBDPOO;
 
-public class ProdutoAdqui {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class ProdutoAdqui {
+	
+	@Id
 	private Integer id;
 	private String nome;
 	private Double preco;
-	private Integer quantidade;
+	private Integer qnt;
 	
-	public ProdutoAdqui(Integer id, String nome, Double preco, Integer quantidade) {
+	public ProdutoAdqui() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public ProdutoAdqui(Integer id, String nome, Double preco, Integer qnt) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
-		this.quantidade = quantidade;
-		
+		this.qnt = qnt;
 	}
 	
 	public Integer getId() {
@@ -34,13 +43,13 @@ public class ProdutoAdqui {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public Integer getQuantidade() {
-		return quantidade;
+	public Integer getQnt() {
+		return qnt;
 	}
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
+	public void setQnt(Integer qnt) {
+		this.qnt = qnt;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,10 +57,10 @@ public class ProdutoAdqui {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((preco == null) ? 0 : preco.hashCode());
-		result = prime * result + ((quantidade == null) ? 0 : quantidade.hashCode());
+		result = prime * result + ((qnt == null) ? 0 : qnt.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,18 +85,21 @@ public class ProdutoAdqui {
 				return false;
 		} else if (!preco.equals(other.preco))
 			return false;
-		if (quantidade == null) {
-			if (other.quantidade != null)
+		if (qnt == null) {
+			if (other.qnt != null)
 				return false;
-		} else if (!quantidade.equals(other.quantidade))
+		} else if (!qnt.equals(other.qnt))
 			return false;
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "ProdutoAdqui [id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade + "]";
+		return "ProdutoAdqui [id=" + id + ", nome=" + nome + ", preco=" + preco + ", qnt=" + qnt + "]";
 	}
 	
+	
+	
+		
 
 }

@@ -1,22 +1,31 @@
 package br.edu.academico.esperanca.projetoBDPOO;
 
-import java.util.ArrayList;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Fornecedor {
 
+	@Id
 	private Integer id;
 	private String nome;
 	private String tipo;
-	private ArrayList<ProdutoAdqui> vem;
+	@OneToMany
+	@JoinColumn(name = "id_ProdutoAdqui")
+	private Set<ProdutoAdqui> vem;
 	
-	public Fornecedor(Integer id, String nome, String tipo, ArrayList<ProdutoAdqui> vem) {
+	public Fornecedor(Integer id, String nome, String tipo, Set<ProdutoAdqui> vem) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.vem = vem;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -35,10 +44,10 @@ public class Fornecedor {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public ArrayList<ProdutoAdqui> getVem() {
+	public Set<ProdutoAdqui> getVem() {
 		return vem;
 	}
-	public void setVem(ArrayList<ProdutoAdqui> vem) {
+	public void setVem(Set<ProdutoAdqui> vem) {
 		this.vem = vem;
 	}
 
@@ -89,5 +98,11 @@ public class Fornecedor {
 	public String toString() {
 		return "Fornecedor [id=" + id + ", nome=" + nome + ", tipo=" + tipo + ", vem=" + vem + "]";
 	}
-
+	
+	
+	
+	
+	
+	
+	
 }

@@ -1,44 +1,75 @@
 package br.edu.academico.esperanca.projetoBDPOO;
 
-public class Participante {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-	private Integer matricula;
-	private String nome;
-	private Integer valor_parti;
+@Entity
+public class Participante {
+	@Id
+	private Integer id;
+	private boolean org;
+	private boolean pagou;
+	private Double valorPago;
+	@ManyToOne
+	@JoinColumn(name = "id_pessoa")
+	private Pessoa pessoa;
 	
-	public Participante(Integer matricula, String nome, Integer valor_parti) {
+	public Participante() {
 		super();
-		this.matricula = matricula;
-		this.nome = nome;
-		this.valor_parti = valor_parti;
+		// TODO Auto-generated constructor stub
 	}
 	
-	public Integer getMatricula() {
-		return matricula;
+	public Participante(Integer id, boolean org, boolean pagou, Double valorPago, Pessoa pessoa) {
+		super();
+		this.id = id;
+		this.org = org;
+		this.pagou = pagou;
+		this.valorPago = valorPago;
+		this.pessoa = pessoa;
 	}
-	public void setMatricula(Integer matricula) {
-		this.matricula = matricula;
+	
+	public Integer getId() {
+		return id;
 	}
-	public String getNome() {
-		return nome;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public boolean isOrg() {
+		return org;
 	}
-	public Integer getValor_parti() {
-		return valor_parti;
+	public void setOrg(boolean org) {
+		this.org = org;
 	}
-	public void setValor_parti(Integer valor_parti) {
-		this.valor_parti = valor_parti;
+	public boolean isPagou() {
+		return pagou;
+	}
+	public void setPagou(boolean pagou) {
+		this.pagou = pagou;
+	}
+	public Double getValorPago() {
+		return valorPago;
+	}
+	public void setValorPago(Double valorPago) {
+		this.valorPago = valorPago;
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((valor_parti == null) ? 0 : valor_parti.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + (org ? 1231 : 1237);
+		result = prime * result + (pagou ? 1231 : 1237);
+		result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
+		result = prime * result + ((valorPago == null) ? 0 : valorPago.hashCode());
 		return result;
 	}
 	
@@ -51,28 +82,35 @@ public class Participante {
 		if (getClass() != obj.getClass())
 			return false;
 		Participante other = (Participante) obj;
-		if (matricula == null) {
-			if (other.matricula != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!matricula.equals(other.matricula))
+		} else if (!id.equals(other.id))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
+		if (org != other.org)
 			return false;
-		if (valor_parti == null) {
-			if (other.valor_parti != null)
+		if (pagou != other.pagou)
+			return false;
+		if (pessoa == null) {
+			if (other.pessoa != null)
 				return false;
-		} else if (!valor_parti.equals(other.valor_parti))
+		} else if (!pessoa.equals(other.pessoa))
+			return false;
+		if (valorPago == null) {
+			if (other.valorPago != null)
+				return false;
+		} else if (!valorPago.equals(other.valorPago))
 			return false;
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Participante [matricula=" + matricula + ", nome=" + nome + ", valor_parti=" + valor_parti + "]";
+		return "Participante [id=" + id + ", org=" + org + ", pagou=" + pagou + ", valorPago=" + valorPago + ", pessoa="
+				+ pessoa + "]";
 	}
-
+	
+	
+	
 	
 }

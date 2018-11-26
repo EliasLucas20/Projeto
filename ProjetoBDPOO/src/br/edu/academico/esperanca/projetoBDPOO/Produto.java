@@ -1,22 +1,41 @@
 package br.edu.academico.esperanca.projetoBDPOO;
 
-import java.util.ArrayList;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Produto {
 	
+	@Id
 	private Integer id;
 	private String nome;
 	private Double preco;
-	private Integer qnt;
-	private ArrayList<Fornecedor> fornece;
-	private ArrayList<ProdutoAdqui> adquirido;
+	@ManyToMany
+	@JoinTable(
+			name = "produto_fornecedor", 
+			joinColumns = @JoinColumn(name = "produto_id"), 
+			inverseJoinColumns = @JoinColumn(name = "fornecedor_id"))
+	private Set<Fornecedor> fornece;
+	@OneToMany
+	@JoinColumn(name = "id_ProdutoAdqui")
+	private Set<ProdutoAdqui> adquirido;
 	
-	public Produto(Integer id, String nome, Double preço, ArrayList<Fornecedor> fornece,
-			ArrayList<ProdutoAdqui> adquirido) {
+	public Produto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Produto(Integer id, String nome, Double preco, Set<Fornecedor> fornece, Set<ProdutoAdqui> adquirido) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preco = preço;
+		this.preco = preco;
 		this.fornece = fornece;
 		this.adquirido = adquirido;
 	}
@@ -33,22 +52,22 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Double getPreço() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreço(Double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public ArrayList<Fornecedor> getFornece() {
+	public Set<Fornecedor> getFornece() {
 		return fornece;
 	}
-	public void setFornece(ArrayList<Fornecedor> fornece) {
+	public void setFornece(Set<Fornecedor> fornece) {
 		this.fornece = fornece;
 	}
-	public ArrayList<ProdutoAdqui> getAdquirido() {
+	public Set<ProdutoAdqui> getAdquirido() {
 		return adquirido;
 	}
-	public void setAdquirido(ArrayList<ProdutoAdqui> adquirido) {
+	public void setAdquirido(Set<ProdutoAdqui> adquirido) {
 		this.adquirido = adquirido;
 	}
 
@@ -103,16 +122,14 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", preço=" + preco + ", fornece=" + fornece + ", adquirido="
+		return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", fornece=" + fornece + ", adquirido="
 				+ adquirido + "]";
 	}
-
-	public Integer getQnt() {
-		return qnt;
-	}
-
-	public void setQnt(Integer qnt) {
-		this.qnt = qnt;
-	}
-
+	
+	
+	
+	
+	
+	
+	
 }
