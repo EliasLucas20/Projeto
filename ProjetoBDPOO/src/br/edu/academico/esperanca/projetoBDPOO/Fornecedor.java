@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Fornecedor {
+public class Fornecedor implements Identificavel {
 
 	@Id
 	private Integer id;

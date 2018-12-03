@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
-public class Festa {
+public class Festa implements Identificavel{
 	
 	@Id
 	private Integer id;

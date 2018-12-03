@@ -10,7 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Produto {
+public class Produto implements Identificavel {
 	
 	@Id
 	private Integer id;

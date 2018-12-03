@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Participante {
+public class Participante implements Identificavel {
 	@Id
 	private Integer id;
 	private boolean org;

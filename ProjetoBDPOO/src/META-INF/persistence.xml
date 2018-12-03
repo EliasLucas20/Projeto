@@ -5,12 +5,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-	<persistence-unit name="academico" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="Festa" transaction-type="RESOURCE_LOCAL">
 		<properties>
 			<!--  Propriedades da conexão com o Banco de Dados -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/academico" />
-			<property name="javax.persistence.jdbc.user" value="usuario" />
-			<property name="javax.persistence.jdbc.password" value="senha" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Festa" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="pg1234" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
 			<!-- Propriedades específicas do Hibernate -->
