@@ -18,6 +18,11 @@ public class Fornecedor {
 	@JoinColumn(name = "id_ProdutoAdqui")
 	private Set<ProdutoAdqui> vem;
 	
+	public Fornecedor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Fornecedor(Integer id, String nome, String tipo, Set<ProdutoAdqui> vem) {
 		super();
 		this.id = id;
