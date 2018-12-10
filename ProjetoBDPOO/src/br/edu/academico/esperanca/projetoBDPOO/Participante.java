@@ -9,8 +9,8 @@ import javax.persistence.ManyToOne;
 public class Participante implements Identificavel {
 	@Id
 	private Integer id;
-	private boolean org;
-	private boolean pagou;
+	private Boolean org;
+	private Boolean pagou;
 	private Double valorPago;
 	@ManyToOne
 	@JoinColumn(name = "id_pessoa")
@@ -36,16 +36,16 @@ public class Participante implements Identificavel {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public boolean isOrg() {
+	public Boolean getOrg() {
 		return org;
 	}
-	public void setOrg(boolean org) {
+	public void setOrg(Boolean org) {
 		this.org = org;
 	}
-	public boolean isPagou() {
+	public Boolean getPagou() {
 		return pagou;
 	}
-	public void setPagou(boolean pagou) {
+	public void setPagou(Boolean pagou) {
 		this.pagou = pagou;
 	}
 	public Double getValorPago() {

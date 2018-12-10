@@ -1,11 +1,21 @@
 package br.edu.academico.esperanca.projetoBDPOO;
 
+import java.util.Set;
+
 public interface InterfaceFesta {
 	
-	public void cadastrarFesta(Participante participante, Fornecedor fornecedor);
-	public void cadastrarPessoa(Pessoa pessoa);
-	public void cadastrarParticipante(Participante participante, Festa festa);
-	public void cadastrarProduto(Produto produto, Fornecedor fornecedor);
-	public void cadastrarProdutoAdqui(ProdutoAdqui produtoAdqui, Produto produto, Fornecedor fornecedor, Festa festa);
+	public void cadastrarFesta(Festa festa, Set<Participante> participante, Set<ProdutoAdqui> adquirido) throws IdInexistente;                                                             ;
+	
+	public void cadastrarPessoa(Pessoa pessoa) throws CpfInexistente;
+
+	public void cadastrarParticipante(Participante participante, Pessoa pessoa) throws IdInexistente, CpfInexistente;
+
+	public void removerFesta(Festa festa, Set<Participante> participante, Set<ProdutoAdqui> adquirido) throws IdInexistente;
+	
+	public void removerPessoa(Pessoa pessoa) throws CpfInexistente;
+	
+	public void removerParticipante(Participante participante, Pessoa pessoa) throws IdInexistente, CpfInexistente;
+	
+	
 
 }
