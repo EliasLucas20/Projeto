@@ -97,5 +97,15 @@ public class Pessoa implements Identificavel {
 	public String toString() {
 		return "Pessoa [cpf=" + cpf + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + "]";
 	}
+
+	public boolean contains(Participante participante) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void add(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

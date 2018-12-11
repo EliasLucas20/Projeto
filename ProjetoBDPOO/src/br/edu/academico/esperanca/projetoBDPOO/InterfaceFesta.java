@@ -4,17 +4,17 @@ import java.util.Set;
 
 public interface InterfaceFesta {
 	
-	public void cadastrarFesta(Festa festa, Set<Participante> participante, Set<ProdutoAdqui> adquirido) throws IdInexistente;                                                             ;
+	public void cadastrarProduto(Produto produto, Festa festa) throws ProdutoJaExistenteException, FestaJaExistenteException, ProdutoNaoExistenteException, FestaNaoExistenteException;                                                             ;
 	
-	public void cadastrarPessoa(Pessoa pessoa) throws CpfInexistente;
+	public void cadastrarPessoa(Pessoa pessoa, Participante participante) throws PessoaJaExistenteException, ParticipanteJaExistenteException, PessoaNaoExistenteException, ParticipanteNaoExistenteException;
 
-	public void cadastrarParticipante(Participante participante, Pessoa pessoa) throws IdInexistente, CpfInexistente;
+	public void cadastrarParticipante(Participante participante, Festa festa) throws ParticipanteJaExistenteException, FestaJaExistenteException, ParticipanteNaoExistenteException, FestaNaoExistenteException;                                                             ;;
 
-	public void removerFesta(Festa festa, Set<Participante> participante, Set<ProdutoAdqui> adquirido) throws IdInexistente;
+	public void removerProduto(Integer id) throws ProdutoNaoExistenteException;
 	
-	public void removerPessoa(Pessoa pessoa) throws CpfInexistente;
+	public void removerPessoa(Integer cpf) throws PessoaNaoExistenteException;
 	
-	public void removerParticipante(Participante participante, Pessoa pessoa) throws IdInexistente, CpfInexistente;
+	public void removerParticipante(Integer id) throws ParticipanteNaoExistenteException;
 	
 	
 
